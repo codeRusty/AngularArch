@@ -1,0 +1,42 @@
+<div>
+<table class="table table-hover" *ngFor="let order of orderList">
+  <tbody>
+    <tr>
+      <th>Order Reference</th>
+      <th>Created</th>
+      <th>Order Status</th>
+      <th>Created By</th>
+      <th>Bill To</th>
+    </tr>
+    <tr >
+      <td>
+        {{order.OrderReference}}
+      </td>
+      <td>
+        {{order.Created| date}}
+      </td>
+      <td class="hover-text">
+        {{order.OrderStatus}}
+
+      </td>
+      <td>
+        {{order.CreatedBy}}
+      </td>
+      <td>
+        {{order.BillTo}}
+      </td>
+      <td class="td-actions text-right">
+        <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-simple btn-xs">
+          <i class="material-icons">edit</i>
+        </button>
+        <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+          <i class="material-icons">close</i>
+        </button>
+      </td>
+      
+    </tr>
+    <case-order-items [orderId]="order.OrderID"></case-order-items>
+  </tbody>
+ 
+</table>
+</div>

@@ -1,0 +1,5 @@
+<div *ngIf="alert" [ngClass]="{'alert-info':alert}" class="alert alert-with-icon floater" data-notify="container">
+    <button type="button" aria-hidden="true" (click)="close()" class="close">×</button>
+    <i data-notify="icon" class="material-icons">add_alert</i>
+    <span data-notify="message">{{alert.text}}</span>
+</div>

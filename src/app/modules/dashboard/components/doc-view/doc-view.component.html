@@ -1,0 +1,11 @@
+<div class="hover-text" (mouseenter)="mouseEnter()" (mouseenter)="mouseLeave()">
+  <i class="material-icons">stay_current_portrait</i>
+</div>
+<div class="div_doc" *ngIf="currentHoveredDoc != null">
+  <div class="close_doc" style="cursor: pointer;">
+    <span (click)="closeDoc()">
+      <i class="material-icons">clear</i>
+    </span>
+  </div>
+  <img class="hov_img" [src]="currentHoveredDoc" />
+</div>

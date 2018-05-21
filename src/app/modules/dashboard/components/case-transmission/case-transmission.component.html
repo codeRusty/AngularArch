@@ -1,0 +1,65 @@
+<table class="table table-hover">
+  <thead class="text-warning">
+    <tbody>
+      <tr>
+        <th>Attachment</th>
+        <th>Recipient Type</th>
+        <th>Contact Option</th>
+        <th>Recipient</th>
+        <th>Document Type</th>
+        <th>Mime Type</th>
+        <th>Transmission Type</th>
+        <th>Transmission Status</th>
+        <th>Edit/Remove</th>
+      </tr>
+      <tr *ngFor="let contact of currentPageData">
+        <td>
+          <i class="material-icons">attachment</i><span class="badge">{{contact.AttachmentCount}}</span>
+        </td>
+        <td>{{contact.DocumentRecipientType}}</td>
+        <td>{{contact.RecipientAddress}}</td>
+        <td>{{contact.RecipientOrgName == null? contact.Recipient : contact.RecipientOrgName}}</td>
+        <td>{{contact.DocumentTypeName}}</td>
+        <td>
+
+          <span [ngClass]="{'txt_class': contact.MimeTypeName == 'TEXT',
+            'pdf_class': contact.MimeTypeName == 'PDF',
+            'doc_class': contact.MimeTypeName == 'DOC'}"></span>
+        </td>
+        <td>
+          <i class="material-icons"> {{contact.TransmissionTypeName == 'Email'?'mail':contact.TransmissionTypeName == 'Print'?'print':'textsms'}}</i>
+        </td>
+        <td>
+          <span [ngClass]="{'status_sent': contact.TransmissionStatusName == 'Sent',
+                              'status_queue': contact.TransmissionStatusName == 'Queued',
+                              'status_can': contact.TransmissionStatusName == 'Cancelled'}"></span>
+        </td>
+        <td class="td-actions text-right">
+          <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-simple btn-xs">
+            <i class="material-icons">edit</i>
+          </button>
+          <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+            <i class="material-icons">close</i>
+          </button>
+        </td>
+      </tr>
+
+
+    </tbody>
+</table>
+<ul class="pagination">
+  <li>
+    <a href="#!">
+      <i class="material-icons">chevron_left</i>
+    </a>
+  </li>
+  <li class="waves-effect" *ngFor="let page of total_page_nos">
+    <a (click)="selectPage(page)">{{page}}</a>
+  </li>
+
+  <li class="waves-effect">
+    <a href="#!">
+      <i class="material-icons">chevron_right</i>
+    </a>
+  </li>
+</ul>

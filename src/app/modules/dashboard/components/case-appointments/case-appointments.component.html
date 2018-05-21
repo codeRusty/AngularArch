@@ -1,0 +1,51 @@
+<table class="table table-hover">
+  <thead class="text-warning">
+    <tbody>
+      <tr>
+        <th>Order Date</th>
+        <th>Name</th>
+        <th>Venue Address</th>
+        <th>Status</th>
+        <th>Order ID</th>
+        <th>Report Type</th>
+        <th>Product Code</th>
+        <th>Edit/Remove</th>
+      </tr>
+      <tr *ngFor="let contact of currentPageData">
+        <td>{{contact.AppointmentDateTime | date}}</td>
+        <td>{{contact.ExpertName}}</td>
+        <td>{{contact.VenueDetails}}</td>
+        <td>
+          <!-- <span [ngClass]="{'status_a': contact.ExpertStatus == 'Active','status_ia': contact.ExpertStatus != 'Enabled' }"></span> -->
+          {{contact.Outcome}}
+        </td>
+        <td>{{contact.OrderId}}</td>
+        <td>{{contact.ReportType}}</td>
+        <td>{{contact.ProductCode}}</td>
+        <td class="td-actions text-right">
+          <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-simple btn-xs">
+            <i class="material-icons">edit</i>
+          </button>
+          <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+            <i class="material-icons">close</i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+</table>
+<ul class="pagination">
+  <li>
+    <a href="#!">
+      <i class="material-icons">chevron_left</i>
+    </a>
+  </li>
+  <li class="waves-effect" *ngFor="let page of total_page_nos">
+    <a (click)="selectPage(page)">{{page}}</a>
+  </li>
+
+  <li class="waves-effect">
+    <a href="#!">
+      <i class="material-icons">chevron_right</i>
+    </a>
+  </li>
+</ul>

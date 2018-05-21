@@ -1,0 +1,240 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <i class="material-icons" (click)="viewFull()">settings_overscan</i>
+    <div class="row">
+
+      <div class="col-md-3">
+        <div class="card card-profile">
+          <div class="card-avatar">
+            <a href="#pablo">
+              <img class="img" src="../assets/img/faces/marc.jpg" />
+            </a>
+          </div>
+          <div class="content" *ngIf="openedCase != null">
+            <h6 class="category text-gray">{{openedCase.Claim.InstructingParty.Organisation.Name}}</h6>
+            <h4 class="card-title">
+                {{openedCase.BrandName}}
+            </h4>
+            <a class="btn btn-danger btn-round">Completed</a>
+            <div class="card-content table-responsive">
+              <table class="table table-hover">
+                <tbody>
+                  <tr>
+                    <td>
+                      <b>Case Reference:</b>
+                    </td>
+                    <td> {{openedCase.CaseReference}}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <b>Claimant Name:</b>
+                    </td>
+                    <td>{{openedCase.Claimant.FirstName + ' '+ openedCase.Claimant.Surname}}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <b>Claimant Address:</b>
+                    </td>
+                    <td>{{openedCase.Claimant.Address.ThoroughfareName}}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <b>IP Address:</b>
+                    </td>
+                    <td>{{openedCase.Claim.InstructingParty.Address.ThoroughfareName}}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <b>IP Case Ref:</b>
+                    </td>
+                    <td> {{openedCase.Claim.InstructingParty.CaseReference}}</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2"> {{openedCase.CaseSummaryCounters.LeadForCase == 1 ? "*Lead already created for case":"*Lead not created
+                      for case"}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="card card-profile">
+          <div class="content">
+            <h6 class="category text-gray">Actions</h6>
+
+            <div class="card-content table-responsive">
+              <table class="table table-hover">
+                <tbody>
+                  <tr>
+                    <td>Add Order</td>
+                  </tr>
+                  <tr>
+                    <td>Add Order (NEW)</td>
+                  </tr>
+                  <tr>
+                    <td>Add New GP Order</td>
+                  </tr>
+                  <tr>
+                    <td>Add New GP Review Of Records</td>
+                  </tr>
+                  <tr>
+                    <td>Add New A&E Order</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-9 col-md-9" *ngIf="openedCase != null">
+        <div class="card card-nav-tabs">
+          <div class="card-header" [ngClass]="{'brand_dc': currentBrand == 'Doctors Chambers', 'brand_bc': currentBrand == 'BodyCare Clinics', 'brand_bcml': currentBrand == 'Bodycare Medico Legal'}">
+            <div class="nav-tabs-navigation">
+              <div class="nav-tabs-wrapper">
+                <!-- <span class="nav-tabs-title">Tasks:</span> -->
+                <ul class="nav nav-tabs" data-tabs="tabs">
+                  <li class="active">
+                    <a href="#profile" data-toggle="tab" (click)="onTabChange('case-contact')">
+                      <i class="material-icons">face</i> Case Contact
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                  <li class="">
+                    <a href="#expert" data-toggle="tab" (click)="onTabChange('case-experts')">
+                      <i class="material-icons">account_circle</i> Case Experts
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                  <li class="">
+                    <a href="#docsent" data-toggle="tab" (click)="onTabChange('doc-sent')">
+                      <i class="material-icons"> assignment_turned_in
+                      </i> Doc Sent
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                  <li class="">
+                    <a href="#docreceived" data-toggle="tab" (click)="onTabChange('doc-rec')">
+                      <i class="material-icons">assignment_returned
+                      </i> Doc Rec
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                  <li class="">
+                    <a href="#transmission" data-toggle="tab" (click)="onTabChange('case-transmission')">
+                      <i class="material-icons">backup</i> Transmission
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                  <!-- <li class="">
+                    <a href="#settings" data-toggle="tab" (click)="onTabChange('doc-rec')">
+                      <i class="material-icons">class
+                      </i> Scan-Header
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                  <li class="">
+                    <a href="#settings" data-toggle="tab" (click)="onTabChange('doc-rec')">
+                      <i class="material-icons">receipt</i> FM-Docs
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                  <li class="">
+                    <a href="#settings" data-toggle="tab" (click)="onTabChange('doc-rec')">
+                      <i class="material-icons">speaker_notes</i> FM-Notes
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li> -->
+
+                  <li class="">
+                    <a href="#notes" data-toggle="tab" (click)="onTabChange('case-notes')">
+                      <i class="material-icons">speaker_notes </i> Notes ({{openedCase.CaseSummaryCounters.Notes}})
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                  <li class="">
+                    <a href="#tasks" data-toggle="tab" (click)="onTabChange('case-tasks')">
+                      <i class="material-icons">toc</i> Tasks ({{openedCase.CaseSummaryCounters.Tasks}})
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                  <li class="">
+                    <a href="#notes" data-toggle="tab">
+                      <i class="material-icons">code</i> Quotes ({{openedCase.CaseSummaryCounters.Quotes}})
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                  <li class="">
+                    <a href="#orders" data-toggle="tab" (click)="onTabChange('case-order')">
+                      <i class="material-icons">dns</i> Orders ({{openedCase.CaseSummaryCounters.Orders}})
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                  <li class="">
+                    <a href="#appointments" data-toggle="tab" (click)="onTabChange('case-appointments')">
+                      <i class="material-icons">event_seat </i> Appointments ({{openedCase.CaseSummaryCounters.Appointments}})
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                  <!-- <li class="">
+                    <a href="#orders" data-toggle="tab" (click)="onTabChange('case-order')">
+                      <i class="material-icons">credit_card</i> Purchase Inv
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                  <li class="">
+                    <a href="#orders" data-toggle="tab" (click)="onTabChange('case-order')">
+                      <i class="material-icons">credit_card</i> Sales Inv
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                  <li class="">
+                    <a href="#orders" data-toggle="tab" (click)="onTabChange('case-order')">
+                      <i class="material-icons">assessment </i> Audit Trails
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li> -->
+                </ul>
+                
+              </div>
+            </div>
+          </div>
+
+          <div class="card-content">
+            <div class="tab-content">
+              <div class="tab-pane active" id="profile">
+                <case-contact *ngIf="currentTab=='case-contact'|| isalreadyLoaded('case-contact')" [caseId]="caseId"></case-contact>
+              </div>
+              <div class="tab-pane" id="expert">
+                <case-experts *ngIf="currentTab=='case-experts'|| isalreadyLoaded('case-experts')" [caseId]="caseId"></case-experts>
+              </div>
+              <div class="tab-pane" id="transmission">
+                <case-transmission *ngIf="currentTab=='case-transmission'|| isalreadyLoaded('case-transmission')" [caseId]="caseId"></case-transmission>
+              </div>
+              <div class="tab-pane" id="docsent">
+                <doc-sent *ngIf="currentTab=='doc-sent' || isalreadyLoaded('doc-sent')" [caseId]="caseId"></doc-sent>
+              </div>
+              <div class="tab-pane" id="docreceived">
+                <doc-received *ngIf="currentTab=='doc-rec' || isalreadyLoaded('doc-rec')" [caseId]="caseId"></doc-received>
+              </div>
+              <div class="tab-pane" id="notes">
+                <case-note *ngIf="currentTab=='case-notes' || isalreadyLoaded('case-notes')" [caseId]=" caseId "></case-note>
+              </div>
+              <div class="tab-pane" id="orders">
+                <case-order *ngIf="currentTab=='case-order' || isalreadyLoaded('case-order')" [caseId]=" caseId "></case-order>
+              </div>
+              <div class="tab-pane" id="appointments">
+                <case-appointments *ngIf="currentTab=='case-appointments' || isalreadyLoaded('case-appointments')" [caseId]=" caseId "></case-appointments>
+              </div>
+              <div class="tab-pane" id="tasks">
+                <case-tasks *ngIf="currentTab=='case-tasks' || isalreadyLoaded('case-tasks')" [caseId]=" caseId "></case-tasks>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+.hover-text:hover~.hov_img {
+  display: block;
+}
+
+.pdf_class {
+  margin-top: -15px;
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  background-image: url("../../../../../assets/img/custom/pdf_img.png");
+  background-repeat: no-repeat;
+}
+
+.txt_class {
+  margin-top: -15px;
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  background-image: url("../../../../../assets/img/custom/txt_img.png");
+  background-repeat: no-repeat;
+}

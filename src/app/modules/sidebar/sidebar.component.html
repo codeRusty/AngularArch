@@ -1,0 +1,30 @@
+<div class="logo" [ngClass]="{'brand_dc': currentBrand == 'Doctors Chambers', 'brand_bc': currentBrand == 'BodyCare Clinics', 'brand_bcml': currentBrand == 'Bodycare Medico Legal'}">
+  <a href="" class="simple-text">
+    <div class="logo-img">
+      <img src="/assets/img/angular2-logo-red.png" />
+    </div>
+    Sourabh
+  </a>
+  <select class="drp_down_brand" #t (change)="onBrandChanged(t.value)" [(ngModel)]="currentBrand">
+    <option *ngFor="let brand of allowedBrands" value={{brand}}>
+      {{brand}}
+    </option>
+  </select>
+</div>
+<div class="sidebar-wrapper">
+  <div class="nav-container">
+    <ul class="nav">
+      <li *ngFor="let menuItem of menuItems" routerLinkActive="active" class="{{menuItem.class}}">
+        <a [routerLink]="[menuItem.path]">
+          <i class="material-icons">{{menuItem.icon}}</i>
+          <p>{{menuItem.title}}</p>
+        </a>
+
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="moving-tab" style="width: 230px; transform: translate3d(0px, 80px, 0px); transition: all 0.5s cubic-bezier(0.29, 1.42, 0.79, 1);">
+  <i class="material-icons">person</i>
+  <p>User Profile</p>
+</div>

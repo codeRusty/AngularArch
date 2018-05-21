@@ -1,0 +1,9 @@
+.floater{
+    position: fixed;
+    z-index: 99;
+    min-width: 100%;
+}
+
+.zup{
+z-index: 999;
+}

@@ -1,0 +1,195 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class="col-lg-12 col-md-12">
+        <!-- <div class="card card-nav-tabs">
+          <div class="card-header" [ngClass]="{'brand_dc': currentBrand == 'Doctors Chambers', 'brand_bc': currentBrand == 'BodyCare Clinics', 'brand_bcml': currentBrand == 'Bodycare Medico Legal'}">
+            <div class="nav-tabs-navigation">
+              <div class="nav-tabs-wrapper">
+                <span class="nav-tabs-title">Case:</span>
+                <ul class="nav nav-tabs" data-tabs="tabs">
+                  <li class="active">
+                    <a href="#profile" data-toggle="tab">
+                      <i class="material-icons">bug_report</i>Search
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                  <li class="">
+                    <a href="#messages" data-toggle="tab">
+                      <i class="material-icons">code</i> List
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                  <li class="">
+                    <a href="#settings" data-toggle="tab">
+                      <i class="material-icons">cloud</i> Forms
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-content">
+            <div class="tab-content">
+              <div class="tab-pane active" id="profile">
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="form-group form-black label-floating is-empty">
+                      <label class="control-label">Case Id</label>
+                      <input type="text" class="form-control" [(ngModel)]="caseId">
+                    </div>
+                  </div>
+                  <a (click)="SearchByCaseId()" class="btn btn-default btn-round">Search</a>
+                </div>
+              </div>
+              <div class="tab-pane" id="messages">
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox" name="optionsCheckboxes" checked>
+                          </label>
+                        </div>
+                      </td>
+                      <td>Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through
+                        metro Detroit
+                      </td>
+                      <td class="td-actions text-right">
+                        <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-simple btn-xs">
+                          <i class="material-icons">edit</i>
+                        </button>
+                        <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                          <i class="material-icons">close</i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox" name="optionsCheckboxes">
+                          </label>
+                        </div>
+                      </td>
+                      <td>Sign contract for "What are conference organizers afraid of?"</td>
+                      <td class="td-actions text-right">
+                        <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-simple btn-xs">
+                          <i class="material-icons">edit</i>
+                        </button>
+                        <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                          <i class="material-icons">close</i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="tab-pane" id="settings">
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox" name="optionsCheckboxes">
+                          </label>
+                        </div>
+                      </td>
+                      <td>Lines From Great Russian Literature? Or E-mails From My Boss?</td>
+                      <td class="td-actions text-right">
+                        <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-simple btn-xs">
+                          <i class="material-icons">edit</i>
+                        </button>
+                        <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                          <i class="material-icons">close</i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox" name="optionsCheckboxes" checked>
+                          </label>
+                        </div>
+                      </td>
+                      <td>Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through
+                        metro Detroit
+                      </td>
+                      <td class="td-actions text-right">
+                        <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-simple btn-xs">
+                          <i class="material-icons">edit</i>
+                        </button>
+                        <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                          <i class="material-icons">close</i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox" name="optionsCheckboxes">
+                          </label>
+                        </div>
+                      </td>
+                      <td>Sign contract for "What are conference organizers afraid of?"</td>
+                      <td class="td-actions text-right">
+                        <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-simple btn-xs">
+                          <i class="material-icons">edit</i>
+                        </button>
+                        <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                          <i class="material-icons">close</i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+        <table class="table table-hover">
+          <thead class="text-warning">
+            <tbody>
+              <tr>
+                <th>Reference</th>
+                <th>Created</th>
+                <th>CreatedBy</th>
+                <th>ReferrerRef</th>
+                <th>Brand</th>
+                <th>Edit/Remove</th>
+              </tr>
+              <tr *ngFor="let case of caseList">
+                <td><a [routerLink]="[case.ID]">{{case.Reference}}</a></td>
+                <td>{{case.Created}}</td>
+                <td>
+                  {{case.CreatedBy}}
+                </td>
+                <td>{{case.ReferrerReference}}</td>
+                <td>
+                  {{case.BrandID}}
+                </td>
+                
+                
+                <td class="td-actions text-right">
+                  <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-simple btn-xs">
+                    <i class="material-icons">edit</i>
+                  </button>
+                  <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                    <i class="material-icons">close</i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

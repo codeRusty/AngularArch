@@ -1,0 +1,28 @@
+<table class="table table-hover">
+  <thead class="text-warning">
+    <tbody>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Status</th>
+        <th>Address</th>
+        <th>Edit/Remove</th>
+      </tr>
+      <tr *ngFor="let contact of caseContacts">
+        <td>{{contact.PersonName}} <b>{{contact.OrganisationName}}</b></td>
+        <td>{{contact.PersonType}}</td>
+        <td>
+          <span [ngClass]="{'status_a': contact.ContactActive == 'Enabled','status_ia': contact.ContactActive != 'Enabled' }"></span>
+        </td>
+        <td>{{contact.PersonAddress}}</td>
+        <td class="td-actions text-right">
+          <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-simple btn-xs">
+            <i class="material-icons">edit</i>
+          </button>
+          <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+            <i class="material-icons">close</i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+</table>

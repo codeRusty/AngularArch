@@ -1,0 +1,53 @@
+.padded_box{
+    padding-top:10%
+}
+
+.full-page-background {
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    display: block;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center center;
+}
+
+.card-login {
+    box-shadow: 0 1px 4px 0 rgb(101, 159, 236);
+    border-radius: 6px;
+    padding-bottom: 20px;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.card-header {
+    margin-top: -40px;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+}
+
+.card-content {
+    padding: 0px 30px 0px 10px;
+}
+.card {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    margin: 25px 0;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+    border-radius: 6px;
+    color: rgba(0,0,0, 0.87);
+    background: #fff;
+    z-index: 9
+}
+.padlft{
+    margin-left:  19%
+}
+
+
+

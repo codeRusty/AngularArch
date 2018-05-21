@@ -1,0 +1,18 @@
+.status_ia {
+    background-color: red;
+    min-width: 20px;
+    min-height: 20px;
+    border-radius: 50%;
+    position: fixed;
+    margin-top: -10px;
+  }
+  
+  .status_a {
+    background-color: green;
+    min-width: 20px;
+    min-height: 20px;
+    border-radius: 50%;
+    position: fixed;
+    margin-top: -10px;
+  }
+  

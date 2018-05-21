@@ -1,0 +1,59 @@
+<table class="table table-hover">
+  <tbody>
+    <tr>
+      <th>DocumentID</th>
+      <th>Name</th>
+      <th>Created</th>
+      
+      <th>RecipientTypeName | RecipientName</th>
+      <th>SenderName</th>
+      <th>View</th>
+      <th>Edit</th>
+    </tr>
+    <tr *ngFor="let doc of currentPageData">
+        <td>
+            {{doc.IDs}}
+          </td>
+      <td>
+        {{doc.Name}}
+      </td>
+      <td>
+        {{doc.Created| date}}
+      </td>
+
+      <td>
+        {{doc.RecipientTypeName == null?"-":doc.RecipientTypeName +' ' + doc.RecipientName== null?"-":doc.RecipientName}}
+      </td>
+      <td>
+        {{doc.SenderName }}
+      </td>
+      <td>
+        <doc-view [docId]="doc.ID"></doc-view>
+      </td>
+      <td class="td-actions text-right">
+        <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-simple btn-xs">
+          <i class="material-icons">edit</i>
+        </button>
+        <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+          <i class="material-icons">close</i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<ul class="pagination">
+    <li>
+      <a href="#!">
+        <i class="material-icons">chevron_left</i>
+      </a>
+    </li>
+    <li class="waves-effect" *ngFor="let page of total_page_nos">
+      <a (click)="selectPage(page)">{{page}}</a>
+    </li>
+  
+    <li class="waves-effect">
+      <a href="#!">
+        <i class="material-icons">chevron_right</i>
+      </a>
+    </li>
+  </ul>

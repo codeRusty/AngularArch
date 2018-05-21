@@ -1,0 +1,47 @@
+.status_can {
+  background-color: red;
+  min-width: 20px;
+  min-height: 20px;
+  border-radius: 50%;
+  position: fixed;
+  margin-top: -10px;
+}
+
+.status_sent {
+  background-color: green;
+  min-width: 20px;
+  min-height: 20px;
+  border-radius: 50%;
+  position: fixed;
+  margin-top: -10px;
+}
+
+.status_queue {
+  background-color: yellow;
+  min-width: 20px;
+  min-height: 20px;
+  border-radius: 50%;
+  position: fixed;
+  margin-top: -10px;
+}
+
+.pdf_class {
+  margin-top: -15px;
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  background-image: url("../../../../../assets/img/custom/pdf_img.png");
+  background-repeat: no-repeat;
+}
+
+.txt_class {
+  margin-top: -15px;
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  background-image: url("../../../../../assets/img/custom/txt_img.png");
+  background-repeat: no-repeat;
+}
+
+
+

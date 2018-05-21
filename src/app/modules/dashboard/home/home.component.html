@@ -1,0 +1,230 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <!-- <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6 hov" routerLink="openings">
+                <div class="card card-stats">
+                    <div class="card-header" data-background-color="orange">
+                        <i class="material-icons">content_copy</i>
+                    </div>
+                    <div class="card-content">
+                        <p class="category">Job Openings</p>
+                        <h3 class="title">10&nbsp;
+                            <small>new</small>
+                        </h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons text-danger">warning</i> <a>new openings...</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 hov">
+                <div class="card card-stats">
+                    <div class="card-header" data-background-color="green">
+                        <i class="material-icons">store</i>
+                    </div>
+                    <div class="card-content">
+                        <p class="category">Candidates</p>
+                        <h3 class="title">20</h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons">date_range</i> Last 24 Hours
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 hov">
+                <div class="card card-stats">
+                    <div class="card-header" data-background-color="red">
+                        <i class="material-icons">info_outline</i>
+                    </div>
+                    <div class="card-content">
+                        <p class="category">Pending</p>
+                        <h3 class="title">75</h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons">local_offer</i> Tracked from Github
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6 hov">
+                <div class="card card-stats">
+                    <div class="card-header" data-background-color="blue">
+                        <i class="fa fa-twitter"></i>
+                    </div>
+                    <div class="card-content">
+                        <p class="category">Followers</p>
+                        <h3 class="title">+245</h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons">update</i> Just Updated
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+    <i class="material-icons" (click)="viewFull()">settings_overscan
+
+    </i>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div [ngClass]="{'brand_dc': currentBrand == 'Doctors Chambers', 'brand_bc': currentBrand == 'BodyCare Clinics', 'brand_bcml': currentBrand == 'Bodycare Medico Legal'}"
+            class="text-center card-header card-chart">
+            <h4 class="title">User Details</h4>
+          </div>
+          <div class="card-content">
+
+            <p class="category">
+              <span class="text-success">
+                <b>User Name: </b>
+                <i class="fa fa-long-arrow-up"></i>
+              </span>{{User._UserName | uppercase }}</p>
+            <p class="category">
+              <b>Email: </b>{{User._Email}}</p>
+            <p class="category">
+              <b>Created: </b> {{User._CreationDate}}.</p>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">access_time</i>
+              Your last login was on: {{User._LastLoginDate}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-12">
+        <div class="card card-nav-tabs">
+          <div class="card-header" [ngClass]="{'brand_dc': currentBrand == 'Doctors Chambers', 'brand_bc': currentBrand == 'BodyCare Clinics', 'brand_bcml': currentBrand == 'Bodycare Medico Legal'}">
+            <div class="nav-tabs-navigation">
+              <div class="nav-tabs-wrapper">
+                <span class="nav-tabs-title">Case Search:</span>
+                <ul class="nav nav-tabs" data-tabs="tabs">
+                  <li class="active">
+                    <a href="#profile" data-toggle="tab">
+                      <i class="material-icons">bug_report</i>By Id
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                  <li class="">
+                    <a href="#messages" data-toggle="tab">
+                      <i class="material-icons">code</i>By Reference
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-content">
+            <div class="tab-content">
+              <div class="tab-pane active" id="profile">
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="form-group form-black label-floating is-empty">
+                      <label class="control-label">Case Id</label>
+                      <input type="text" class="form-control" [(ngModel)]="caseId">
+                    </div>
+                  </div>
+                  <a (click)="SearchByCaseId()" class="btn btn-default btn-round">Search</a>
+                </div>
+              </div>
+              <div class="tab-pane" id="messages">
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="form-group form-black label-floating is-empty">
+                      <label class="control-label">Case Reference</label>
+                      <input type="text" class="form-control" [(ngModel)]="caseRef">
+                    </div>
+                  </div>
+                  <a (click)="SearchCaseByRef()" class="btn btn-default btn-round">Search</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="text-center card-header card-chart" [ngClass]="{'brand_dc': currentBrand == 'Doctors Chambers', 'brand_bc': currentBrand == 'BodyCare Clinics', 'brand_bcml': currentBrand == 'Bodycare Medico Legal'}">
+            <h4 class="title">Company Details</h4>
+          </div>
+          <div class="card-content" *ngIf="UserRoleDetails != null">
+
+            <p class="category">
+              <b>Role:</b> {{UserRoleDetails.MemberOf}}</p>
+            <p class="category">
+              <b>Department:</b> {{UserRoleDetails.DepartmentName}}</p>
+            <p class="category">
+              <b>Brand:</b> {{UserRoleDetails.BrandName}}</p>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">access_time</i> campaign sent 2 days ago
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-lg-6 col-md-12">
+        <div class="card">
+          <div class="card-header" [ngClass]="{'brand_dc': currentBrand == 'Doctors Chambers', 'brand_bc': currentBrand == 'BodyCare Clinics', 'brand_bcml': currentBrand == 'Bodycare Medico Legal'}">
+            <h4 class="title">Employees Stats</h4>
+            <p class="category">New employees on 15th September, 2016</p>
+          </div>
+          <div class="card-content table-responsive">
+            <table class="table table-hover">
+              <thead class="text-warning">
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Salary</th>
+                  <th>Country</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Dakota Rice</td>
+                  <td>$36,738</td>
+                  <td>Niger</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Minerva Hooper</td>
+                  <td>$23,789</td>
+                  <td>Curaçao</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Sage Rodriguez</td>
+                  <td>$56,142</td>
+                  <td>Netherlands</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>Philip Chaney</td>
+                  <td>$38,735</td>
+                  <td>Korea, South</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
